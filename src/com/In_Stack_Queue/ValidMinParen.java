@@ -1,0 +1,21 @@
+package com.In_Stack_Queue;
+
+import java.util.Stack;
+
+public class ValidMinParen {
+    public int isboolean(String s){
+        Stack<Character> stack = new Stack<>();
+        for(char ch : s.toCharArray()){
+            if(ch == ')'){
+                if(!stack.isEmpty() && stack.peek() == '('){
+                    stack.pop();
+                } else {
+                    stack.push(ch);
+                }
+            } else {
+                stack.push(ch);
+            }
+        }
+        return stack.size();
+    }
+}
